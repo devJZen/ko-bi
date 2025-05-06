@@ -1,8 +1,7 @@
-import { FC, useEffect, useState } from 'react';
-import { useWallet } from '@solana/wallet-adapter-react';
+import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
-import { LAMPORTS_PER_SOL, Connection } from '@solana/web3.js';
-import { useConnection } from '@solana/wallet-adapter-react';
+import { LAMPORTS_PER_SOL } from '@solana/web3.js';
+import { FC, useEffect, useState } from 'react';
 
 export const WalletConnection: FC = () => {
   const { publicKey, wallet, disconnect, connected } = useWallet();
@@ -27,7 +26,7 @@ export const WalletConnection: FC = () => {
     getBalance();
     // Set up polling to update balance regularly
     const intervalId = setInterval(getBalance, 10000);
-    
+
     return () => clearInterval(intervalId);
   }, [publicKey, connection]);
 
@@ -38,7 +37,7 @@ export const WalletConnection: FC = () => {
   return (
     <div className="wallet-connection">
       <WalletMultiButton />
-      
+
       {connected && publicKey && (
         <div className="wallet-info">
           <p>Connected with: {wallet?.adapter.name}</p>

@@ -1,13 +1,16 @@
 import type { NextPage } from 'next';
-import { WalletConnection } from '../components/WalletConnection';
 import Head from 'next/head';
+import { WalletConnection } from '../components/WalletConnection';
 
 const Home: NextPage = () => {
   return (
     <div>
       <Head>
         <title>Solana + Next.js App</title>
-        <meta name="description" content="A Next.js app integrated with Solana blockchain" />
+        <meta
+          name="description"
+          content="A Next.js app integrated with Solana blockchain"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
