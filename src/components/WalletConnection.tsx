@@ -35,11 +35,11 @@ export const WalletConnection: FC = () => {
   };
 
   return (
-    <div className="wallet-connection">
+    <div>
       <WalletMultiButton />
 
       {connected && publicKey && (
-        <div className="wallet-info">
+        <div>
           <p>Connected with: {wallet?.adapter.name}</p>
           <p>Address: {formatAddress(publicKey.toBase58())}</p>
           {balance !== null && (

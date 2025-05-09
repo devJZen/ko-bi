@@ -1,12 +1,11 @@
-import type { NextPage } from 'next';
+import { HeroSection } from '@/components/hero-section';
 import Head from 'next/head';
-import { WalletConnection } from '../components/WalletConnection';
 
-const Home: NextPage = () => {
+export default function Home() {
   return (
-    <div>
+    <div className="min-h-screen bg-black text-white">
       <Head>
-        <title>Solana + Next.js App</title>
+        <title>Welcome to Ko-bi</title>
         <meta
           name="description"
           content="A Next.js app integrated with Solana blockchain"
@@ -14,13 +13,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main style={{ padding: '2rem' }}>
-        <h1>Solana + Next.js App</h1>
-        <WalletConnection />
-        <p>Connect your wallet to interact with Solana blockchain</p>
+      <main className="min-h-screen">
+        <HeroSection />
       </main>
     </div>
   );
-};
-
-export default Home;
+}
