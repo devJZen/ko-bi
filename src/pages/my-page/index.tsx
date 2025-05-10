@@ -1,10 +1,10 @@
-"use client"
+'use client';
 
-import { EditProfileDialog } from "@/components/editProfileDialog"
-import ProfileCard, { mockProfiles } from "@/components/profileCard"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button"
-import { Plus } from "lucide-react"
+import { EditProfileDialog } from '@/components/editProfileDialog';
+import ProfileCard, { mockProfiles } from '@/components/profileCard';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
+import { Plus } from 'lucide-react';
 // import { useToast } from "@/hooks/use-toast"
 
 export default function ProfilePage() {
@@ -12,11 +12,11 @@ export default function ProfilePage() {
 
   // This would typically come from a database or API
   const user = {
-    name: "Sarah Johnson",
-    email: "sarah.johnson@example.com",
-    joinedDate: "January 15, 2023",
-    avatar: "/user.png",
-  }
+    name: 'Sarah Johnson',
+    email: 'sarah.johnson@example.com',
+    joinedDate: 'January 15, 2023',
+    avatar: '/user.png',
+  };
 
   // const handleSaveProfile = (updatedUser: UserProfile) => {
   //   setUser(updatedUser)
@@ -27,40 +27,50 @@ export default function ProfilePage() {
   // }
 
   return (
-    <div className="container mx-auto px-4 max-w-5xl">
+    <div className="container mx-auto max-w-5xl px-4">
       {/* User Profile Section */}
-      <div className="flex flex-col items-center mb-12 space-y-4">
+      <div className="mb-12 flex flex-col items-center space-y-4">
         <Avatar className="h-32 w-32 bg-white">
-          <AvatarImage src={user.avatar || "/placeholder.svg"} alt={user.name} />
+          <AvatarImage
+            src={user.avatar || '/placeholder.svg'}
+            alt={user.name}
+          />
           <AvatarFallback>
             {user.name
-              .split(" ")
+              .split(' ')
               .map((n) => n[0])
-              .join("")}
+              .join('')}
           </AvatarFallback>
         </Avatar>
-        <div className="text-center space-y-2">
+        <div className="space-y-2 text-center">
           <h1 className="text-2xl font-bold">{user.name}</h1>
           <p className="text-muted-foreground">{user.email}</p>
-          <p className="text-sm text-muted-foreground">Joined {user.joinedDate}</p>
-          <EditProfileDialog user={user} onSave={()=>console.log('saved: ', user)} />
+          <p className="text-muted-foreground text-sm">
+            Joined {user.joinedDate}
+          </p>
+          <EditProfileDialog
+            user={user}
+            onSave={() => console.log('saved: ', user)}
+          />
         </div>
       </div>
 
       {/* User Posts Section */}
-      <div className="space-y-6 flex flex-col justify-center">
-        <div className="flex justify-between mb-6">
-          <h2 className="text-xl font-semibold mb-6">Posts</h2>
-          <Button className="gap-2 border border-white cursor-pointer" onClick={() => {}}>
+      <div className="flex flex-col justify-center space-y-6">
+        <div className="mb-6 flex justify-between">
+          <h2 className="mb-6 text-xl font-semibold">Posts</h2>
+          <Button
+            className="cursor-pointer gap-2 border border-white"
+            onClick={() => {}}>
             <Plus size={16} />
             Create New Post
           </Button>
         </div>
-        <div className="grid gap-6 md:grid-cols-2 grid-cols-1 self-center">
+        <div className="grid grid-cols-1 gap-6 self-center md:grid-cols-2">
           {mockProfiles.map((profile, index) => (
-            <ProfileCard 
-              key={index} 
-              avatar={profile.avatar} 
+            <ProfileCard
+              key={index}
+              avatar={profile.avatar}
               name={profile.name}
               jobTitle={profile.jobTitle}
               description={profile.description}
@@ -71,5 +81,5 @@ export default function ProfilePage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

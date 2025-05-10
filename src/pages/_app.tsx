@@ -6,7 +6,7 @@ import '../styles/globals.css';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <SolanaWalletProvider>
-      <div className='min-h-screen bg-black text-white flex flex-col'>
+      <div className="flex min-h-screen flex-col bg-black text-white">
         <Header />
         <Component {...pageProps} />
       </div>

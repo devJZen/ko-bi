@@ -2,17 +2,16 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
-import { Separator } from "@/components/ui/separator";
-import { PopoverClose } from "@radix-ui/react-popover";
+} from '@/components/ui/popover';
+import { Separator } from '@/components/ui/separator';
+import { PopoverClose } from '@radix-ui/react-popover';
 import Image from 'next/image';
 import Link from 'next/link';
-
 
 export function Header() {
   return (
     <header className="sticky top-0 right-0 left-0 z-50">
-      <div className="flex items-center justify-between bg-black/50 pl-6 pr-12 py-4 backdrop-blur-xl">
+      <div className="flex items-center justify-between bg-black/50 py-4 pr-12 pl-6 backdrop-blur-xl">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center gap-3">
             <Image
@@ -51,12 +50,12 @@ export function Header() {
                 alt="Profile picture"
                 width={36}
                 height={36}
-                className="rounded-full object-cover bg-white"
+                className="rounded-full bg-white object-cover"
               />
-            <p>Log in</p>
+              <p>Log in</p>
             </div>
           </PopoverTrigger>
-          <PopoverContent className="flex flex-col gap-2 items-start w-full py-2 px-4">
+          <PopoverContent className="flex w-full flex-col items-start gap-2 px-4 py-2">
             <PopoverClose>
               <Link
                 href="/login"
