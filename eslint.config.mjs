@@ -19,10 +19,11 @@ const eslintConfig = [
       'prettier/prettier': [
         'error',
         {
-          trailingComma: 'all',
+          trailingComma: 'es5',
           semi: true,
           tabWidth: 2,
           singleQuote: true,
+          bracketSameLine: true,
           printWidth: 80,
           endOfLine: 'auto',
           arrowParens: 'always',
